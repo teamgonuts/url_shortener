@@ -4,6 +4,10 @@ class UrlController < ApplicationController
       
   end
 
+  def new
+    
+  end
+
   def show
     @url = params[:id]
   end
