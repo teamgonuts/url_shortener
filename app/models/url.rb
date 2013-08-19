@@ -9,4 +9,6 @@ class Url < ActiveRecord::Base
   #while !uniqueObject.save # if at first it didn't save...
       #uniqueObject.uuid_column = generate_uuid() # try, try again
   #end # should break out of the loop if the save succeeded.
-  ### end
+  ###
+
+ end
