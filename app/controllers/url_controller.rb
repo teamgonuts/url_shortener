@@ -5,7 +5,7 @@ class UrlController < ApplicationController
   end
 
   def new
-    
+    @newurl = Url.new
   end
 
   def show

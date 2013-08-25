@@ -1,0 +1,21 @@
+
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="url new">
+  <h2>Create url</h2>
+
+  <%= form_for(:newurl, :url => {:action => 'create'}) do |f| %>
+  
+    <table summary="Url form fields">
+      <tr>
+        <th>Url?</th>
+        <td><%= f.text_field(:url) %></td>
+      </tr>
+    </table>
+    
+    <div class="form-buttons">
+      <%= submit_tag("Shorten Url") %>
+    </div>
+    
+  <% end %>
+</div>
