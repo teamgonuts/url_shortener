@@ -1,5 +1,7 @@
 UrlShortener::Application.routes.draw do
-  get "url/index"
+
+  root :to => "urls#index"
+  #get "url/index"
 
 
   match ':controller(/:action(/:id))(.:format)'
