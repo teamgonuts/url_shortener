@@ -56,6 +56,7 @@ class UrlsController < ApplicationController
       flash[:notice] = "Url successfully updated."
       redirect_to(:action => 'show', :id => @url.id)
     else
+      flash[:notice] = "Url update failed."
       render('edit')
     end
   end
