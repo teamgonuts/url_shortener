@@ -17,7 +17,7 @@
 # Ignore all temp files
 **/*.swp
 **/*.bak
-*.swp
+**/*.DS_Store
 
 
 
