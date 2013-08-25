@@ -19,12 +19,9 @@
 **/*.bak
 *.swp
 
-*.swp
 
-*.swp
 
 config/.database.yml.swp
 
-*.swp
 
 app/models/.url.rb.swp
