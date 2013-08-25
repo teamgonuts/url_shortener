@@ -22,8 +22,7 @@ class UrlsController < ApplicationController
     @newurl = Url.new(params[:newurl])
 
     if Url.exists?(:url => @newurl.url)
-      foundurl = Url.find_by_url(@newurl.url)
-      redirect_to(:action => 'success', :id => foundurl.id)
+      redirect_to(:action => 'success', :id => Url.find_by_url(@newurl.url).id)
     else
       begin 
         @newurl.generate_codename()
