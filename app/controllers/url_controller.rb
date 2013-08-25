@@ -1,7 +1,7 @@
 class UrlController < ApplicationController
 
   def index
-      
+      render('new')
   end
 
   def new
