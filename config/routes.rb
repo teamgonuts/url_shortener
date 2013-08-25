@@ -1,9 +1,10 @@
 UrlShortener::Application.routes.draw do
   get "url/index"
 
-  match ':id' => 'urls#find'
 
   match ':controller(/:action(/:id))(.:format)'
+
+  match ':id' => 'urls#find'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
