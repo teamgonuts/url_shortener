@@ -1,0 +1,12 @@
+<%= link_to("<< Create a new link", {:action => 'index'}, :class => 'back-link') %>
+
+<div>
+  <h2>Shortened Url!</h2>
+
+  <br/>
+  Here's your shortened url! Just go to <%= link_to("localhost:3000/url/find/" + @newurl.codename, {:action => 'find', :id => @newurl.codename})%>
+  <br/>
+  It is a "shortened" version of <%= @newurl.url%>
+  <br/> 
+  
+</div>
