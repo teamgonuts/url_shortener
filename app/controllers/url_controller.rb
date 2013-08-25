@@ -12,6 +12,9 @@ class UrlController < ApplicationController
     @url = params[:id]
   end
 
+  def list
+    @urls = Url.all 
+  end
 
 =begin
 Creating a unique id will be something like this
