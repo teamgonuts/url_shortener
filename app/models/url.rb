@@ -452,8 +452,8 @@ class Url < ActiveRecord::Base
   #generates a codename from the given array of naughty words
   #NOTE: Does not generate codenames uniqueness. Uniqueness is checked when object is saved
   def generate_codename
-    first_word = BADWORDS[rand(1..BADWORDS.count - 1)]
-    second_word = BADWORDS[rand(1..BADWORDS.count - 1)]
+    first_word = BADWORDS[rand(1..BADWORDS.count)]
+    second_word = BADWORDS[rand(1..BADWORDS.count)]
 
     code = first_word + second_word
 
