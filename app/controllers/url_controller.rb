@@ -8,6 +8,20 @@ class UrlController < ApplicationController
     @newurl = Url.new
   end
 
+  def create
+    @newurl = Url.new(params[:newurl])
+
+    begin 
+      @newurl.generate_codename()
+    end while Url.exists?(:codename => @newurl.codename)
+
+    if @newurl.save
+      redirect_to(:action => 'list')
+    else
+      render('new')
+    end
+  end
+
   def show
     @url = Url.find_by_id(params[:id])
   end

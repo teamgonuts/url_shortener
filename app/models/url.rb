@@ -1,6 +1,7 @@
 class Url < ActiveRecord::Base
   attr_accessible :url, :codename
   validates_uniqueness_of :codename
+
   BADWORDS = ["4r5e",
 			  "5h1t",
 			  "5hit",
@@ -451,8 +452,8 @@ class Url < ActiveRecord::Base
   #generates a codename from the given array of naughty words
   #NOTE: Does not generate codenames uniqueness. Uniqueness is checked when object is saved
   def generate_codename
-    first_word = BADWORDS[rand(1..BADWORDS.count)]
-    second_word = BADWORDS[rand(1..BADWORDS.count)]
+    first_word = BADWORDS[rand(1..BADWORDS.count - 1)]
+    second_word = BADWORDS[rand(1..BADWORDS.count - 1)]
 
     code = first_word + second_word
 
