@@ -21,15 +21,20 @@ class UrlsController < ApplicationController
   def create
     @newurl = Url.new(params[:newurl])
 
-    begin 
-      @newurl.generate_codename()
-    end while Url.exists?(:codename => @newurl.codename)
-
-    if @newurl.save
-      flash[:notice] = "Url successfully shortened."
-      redirect_to(:action => 'success', :id => @newurl.id)
+    if Url.exists?(:url => @newurl.url)
+      foundurl = Url.find_by_url(@newurl.url)
+      redirect_to(:action => 'success', :id => foundurl.id)
     else
-      render('new')
+      begin 
+        @newurl.generate_codename()
+      end while Url.exists?(:codename => @newurl.codename)
+
+      if @newurl.save
+        flash[:notice] = "Url successfully shortened."
+        redirect_to(:action => 'success', :id => @newurl.id)
+      else
+        render('new')
+      end
     end
   end
 
