@@ -14,8 +14,8 @@ development:
   reconnect: false
   database: url_shortener_development
   pool: 5
-  username: root
-  password:
+  username: url_shortener
+  password: showmethemoney96
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
