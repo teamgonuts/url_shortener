@@ -9,7 +9,7 @@ class UrlController < ApplicationController
   end
 
   def show
-    @url = params[:id]
+    @url = Url.find_by_id(params[:id])
   end
 
   def list
