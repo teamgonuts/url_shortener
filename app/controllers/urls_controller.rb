@@ -1,11 +1,7 @@
-class UrlController < ApplicationController
+class UrlsController < ApplicationController
 
   def index
       render('new')
-  end
-
-  def new
-    @newurl = Url.new
   end
 
   def find
@@ -18,6 +14,10 @@ class UrlController < ApplicationController
     @newurl = Url.find_by_id(params[:id])
   end
 
+  def new
+    @newurl = Url.new
+  end
+
   def create
     @newurl = Url.new(params[:newurl])
 
@@ -26,6 +26,7 @@ class UrlController < ApplicationController
     end while Url.exists?(:codename => @newurl.codename)
 
     if @newurl.save
+      flash[:notice] = "Url successfully shortened."
       redirect_to(:action => 'success', :id => @newurl.id)
     else
       render('new')
@@ -38,6 +39,31 @@ class UrlController < ApplicationController
 
   def list
     @urls = Url.all 
+  end
+
+  def edit
+    @url = Url.find_by_id(params[:id])
+  end
+
+  def update
+    @url = Url.find_by_id(params[:id])
+
+    if @url.update_attributes(params[:newurl])
+      flash[:notice] = "Url successfully updated."
+      redirect_to(:action => 'show', :id => @url.id)
+    else
+      render('edit')
+    end
+  end
+
+  def delete
+    @url = Url.find_by_id(params[:id])
+  end
+
+  def destroy
+    Url.find_by_id(params[:id]).destroy
+    flash[:notice] = "Url successfully destroyed."
+    redirect_to(:action => 'list')
   end
 
 =begin

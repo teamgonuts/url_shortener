@@ -1,0 +1,21 @@
+
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="url delete">
+  <h2>Delete Url</h2>
+  
+  <%= form_for(:newurl, :url => {:action => 'destroy', :id => @url.id}) do |f| -%>
+
+    <p>Are you sure you want to permanently delete this url?</p>
+  
+    <p class="reference-name"><%= "Url: " + @url.url %> <br/>
+    <%= "Hash: " + @url.codename %>
+
+    </p>
+  
+    <div class="form-buttons">
+      <%= submit_tag("Delete Url") %>
+    </div>
+    
+  <% end %>
+</div>
