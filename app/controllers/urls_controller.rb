@@ -8,7 +8,7 @@ class UrlsController < ApplicationController
   def find
     codename = params[:id]
     url = Url.find_by_codename(codename)
-    redirect_to('http://' + url.url)
+    redirect_to(url.url)
   end
 
   def success
@@ -23,6 +23,7 @@ class UrlsController < ApplicationController
     @newurl = Url.new(params[:newurl])
 
     if Url.exists?(:url => @newurl.url)
+      flash[:notice] = "Url already exists in database."
       redirect_to(:action => 'success', :id => Url.find_by_url(@newurl.url).id)
     else
       begin 
@@ -33,6 +34,7 @@ class UrlsController < ApplicationController
         flash[:notice] = "Url successfully shortened."
         redirect_to(:action => 'success', :id => @newurl.id)
       else
+        flash[:notice] = "Error: Url not saved. You must include http:// before the URL."
         render('new')
       end
     end
@@ -72,12 +74,4 @@ class UrlsController < ApplicationController
     redirect_to(:action => 'list')
   end
 
-=begin
-Creating a unique id will be something like this
-@uniqueObject = MyUniqueModel.new(modelParams)
-@uniqueObject.uuid_column = generate_uuid() # whatever method you use for generating your uuid
-while !uniqueObject.save # if at first it didn't save...
-    uniqueObject.uuid_column = generate_uuid() # try, try again
-end # should break out of the loop if the save succeeded.
-=end
 end

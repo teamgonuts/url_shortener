@@ -1,6 +1,7 @@
 class Url < ActiveRecord::Base
   attr_accessible :url, :codename
   validates_uniqueness_of :url, :codename
+  validates :url, :presence => true, :url => true
 
   BADWORDS = ["4r5e",
 			  "5h1t",

@@ -12,7 +12,7 @@
   <br/>
   Here's your shortened url! Just go to <%= link_to(request.base_url + '/' + @newurl.codename , {:action => 'find', :id => @newurl.codename})%>
   <br/>
-  It is a "shortened" version of <%= link_to(@newurl.url, "http://" + @newurl.url) %>
+  It is a "shortened" version of <%= link_to(@newurl.url, @newurl.url) %>
   <br/> 
   
 </div>
