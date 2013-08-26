@@ -4,6 +4,7 @@ class UrlsController < ApplicationController
       render('new')
   end
 
+  #redirects to url provided by user
   def find
     codename = params[:id]
     url = Url.find_by_codename(codename)
