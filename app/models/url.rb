@@ -3,6 +3,7 @@ class Url < ActiveRecord::Base
   validates_uniqueness_of :url, :codename
   validates :url, :presence => true, :url => true
 
+  #Below is a list of curse words taken from GOOGLE'S banned words list!
   BADWORDS = ["4r5e",
 			  "5h1t",
 			  "5hit",
@@ -302,14 +303,6 @@ class Url < ActiveRecord::Base
 			  "n1gga",
 			  "n1gger",
 			  "nazi",
-			  "nigg3r",
-			  "nigg4h",
-			  "nigga",
-			  "niggah",
-			  "niggas",
-			  "niggaz",
-			  "nigger",
-			  "niggers",
 			  "nob",
 			  "nobhead",
 			  "nobjocky",
