@@ -1,9 +1,7 @@
 UrlShortener is an application created as a fun way for Carl and I to learn rails.
 
-It contains all the basic functionality of a usual URL shortener with one twist: the code created for each website is a combination of two curse words banned by Google's 'What do you Love?' service. 
-
+It contains all the basic functionality of a usual URL shortener.
 Note: This application was created for our own amusement and is not intended to offended.  
 
 
-Source:
-http://fffff.at/googles-official-list-of-bad-words/
+
